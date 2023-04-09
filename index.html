@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convection calculation</title>
+</head>
+<body style="background-color:powderblue">
+<div>
+<h1>Convection Calculation</h1>
+<form class="grid" action="/result" method="POST">
+    <center>
+        {% if name %}
+        <h3 style="color:blue;">Reynolds number(PUL/M): {{name[0]}}</h3>
+        <h3 style="color:blue;">Nusselt number: {{name[1]}}</h3>
+        <h3 style="color:blue;">Heat transfer coefficient(h): {{name[2]}} W/mK</h3>
+        <h3 style="color:blue;">Heat transfer rate(Q): {{name[3]}} W</h3>
+        {% endif %}
+    </center>
+<label for="convection">Type of Convection:</label>
+<select id="convection" name="convection">
+<option value="forced">Forced Convection</option>
+<option value="free">Free Convection</option>
+</select>
+<br>
+<br>
+<label for="velocity">Velocity of air:</label>
+<input type="number" id="velocity" min="0" step="0.1" name="velocity" placeholder="Velocity(m/sec)"> 
+<br>
+<br>
+<label for="typeht">Type of heat flow:</label>
+<select id="typeht" name="typeht">
+<option value="internal">Internal Flow</option>
+<option value="external">External Flow</option>
+</select>
+<br>
+<br>
+<label for="shape">Type of the surface:</label>
+<select name="shape" name="shape">
+<option value="flatplate">Flat Plate</option>
+<option value="cylinder">Cylindrical</option>
+<option value="sphere">Sphere</option>
+</select>
+<br>
+<br>
+<label for="length">Length of surface:</label>
+<input type="number" id="length" name="length" min="0" step="0.1" placeholder="Length(m)">
+<br>
+<br>
+<label for="breadth">(Breadth/Diameter) of surface:</label>
+<input type="number" id="breadth" min="0" step="0.1" name="breadth" placeholder="Breadth/Diameter(m)">
+<br>
+<br>
+<label for="thickness">Thickness of plate:</label>
+<input type="number" id="thickness" min="0" step="0.1" name="thickness" placeholder="Thickness(m)">
+<br>
+<br>
+<label for="surftemp">Surface temperature:</label>
+<input type="number" id="surftemp" name="surftemp" placeholder="Kelvin(K)">
+<br>
+<br>
+<label for="surrtemp">Surrounding temperature:</label>
+<input type="number" id="surrtemp" name="surrtemp" placeholder="Kelvin(K)">  
+<br>
+<br>
+<button for="calculate" class="file_submit">Calculate</button>
+</form>
+</div>
+</body>
+</html>
+<style>
+div{
+position:relative;
+left:250px;
+border:2px solid;
+padding:1px;
+width:500px;
+}
+input,select{
+padding:5px;
+}
+h1{
+text-align:center;
+}
+button{
+background-color:blueviolet;
+color:#fff;
+padding:10px;
+font-size:100%;
+position:relative;
+left:200px
+}
+</style>
